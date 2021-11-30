@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\TranslateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('posts');
 });
+
+Route::get('/translate', [TranslateController::class, 'index'])->name('translate');
+Route::get('lang/{locale}', [LocalizationController::class, 'lang'])->name('lang');
+
